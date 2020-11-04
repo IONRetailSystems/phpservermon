@@ -109,21 +109,49 @@ class StatusUpdater
         switch ($this->server['type']) {
             case 'ping':
                 $this->status_new = $this->updatePing($max_runs);
-                break;
-            case 'service':
-                $this->status_new = $this->updateService($max_runs);
-                break;
-            case 'website':
-                $this->status_new = $this->updateWebsite($max_runs);
-                break;
-        }
-
         // update server status
         $save = array(
             'last_check' => date('Y-m-d H:i:s'),
             'error' => $this->error,
             'rtime' => $this->rtime
         );
+
+                break;
+   			case 'server':
+				$this->status_new = $this->UpdateServer($max_runs)
+	            // update server status
+                $save = array(
+                    'last_check' => date('Y-m-d H:i:s'),
+                    'error' => $this->error,
+                    'rtime' => $this->rtime
+                    'label' => $this->label,
+                    'status'=> $this->status,
+                    'server_status'=> $this->server_status,
+                    'sensor_status'=> $this->sensor_status,
+                    'last_counts'  => $this->last_counts,
+                    'last_online'  => $this->last_online);
+                break;
+
+            case 'service':
+                $this->status_new = $this->updateService($max_runs);
+                // update server status
+                $save = array(
+                    'last_check' => date('Y-m-d H:i:s'),
+                    'error' => $this->error,
+                    'rtime' => $this->rtime
+                );
+                break;
+            case 'website':
+               $this->status_new = $this->updateWebsite($max_runs);
+                // update server status
+                $save = array(
+                    'last_check' => date('Y-m-d H:i:s'),
+                    'error' => $this->error,
+                    'rtime' => $this->rtime
+                );
+                break;
+        }
+
         if (!empty($this->error)) {
             $save['last_error'] = $this->error;
         }
@@ -191,6 +219,46 @@ class StatusUpdater
         return $status;
     }
 
+xxxx
+   /**
+     * Check the Server Flags Files
+     * @param int $max_runs
+     * @param int $run
+     * @return boolean  /**
+     * Check the current server as a service
+     * @param int $max_runs
+     * @param int $run
+     * @return boolean
+     */
+    protected function updateServer($max_runs, $run = 1)
+    {
+        $serverIp = $this->server['ip'];
+
+		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/Server." . $serverIp . ".*") as $filename) {
+
+			$server_details = parse_ini_file($filename);
+
+			$status = 'green';
+
+			if(strtolower($server_details['server_status']) != 'ok') {
+				$status = 'yellow';
+			}
+	
+			if(strtolower($server_details['sensors_state']) !='ok') {
+				$status = 'red';
+			}
+
+            /*
+             * What is going to change ?
+             * Label if name of system has changed
+             * Last count will be a change
+             * Status could be changed.
+             */ 
+            
+            
+
+
+xxxxx   
     /**
      * Check the current server as a service
      * @param int $max_runs
