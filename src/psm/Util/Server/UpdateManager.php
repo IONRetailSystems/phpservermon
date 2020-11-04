@@ -34,22 +34,6 @@ use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Allow Chrome Logger for Additional Console Capabilities
-
- 
-  $path = $_SERVER['DOCUMENT_ROOT'];
-  $path .= "/includes/ChromePhp.php";
-  include_once($path);
-
-ChromePhp::log('Hello console!');
-
-ChromePhp::log($_SERVER);
-
-ChromePhp::warn('something went wrong!');
-
-*/
-
-/**
  * Run an update on all servers.
  */
 class UpdateManager implements ContainerAwareInterface
@@ -69,25 +53,12 @@ class UpdateManager implements ContainerAwareInterface
      */
     public function run($skip_perms = false, $status = null)
     {
-        if (false === in_array($status, ['on', 'off'], true)) {
+        // added green, yellow, red
+	if (false === in_array($status, ['on', 'off', 'green', 'yellow', 'red'], true)) {
             $status = null;
         }
 
-	// modified udt 20201028
-	// need to read the server files and configure accordingly
-	$d = dir(getcwd());
-	echo "Handle: " . $d->handle . "<br>";
-	echo "Path: " . $d->path . "<br>";
-
-	while (($file = $d->read()) !== false){
-	  echo "filename: " . $file . "<br>";
-	}
-	$d->close();
-	// end modify
-
-
-
-        // check if we need to restrict the servers to a certain user
+	// check if we need to restrict the servers to a certain user
         $sql_join = '';
 
         if (!$skip_perms && $this->container->get('user')->getUserLevel() > PSM_USER_ADMIN) {
@@ -111,9 +82,8 @@ class UpdateManager implements ContainerAwareInterface
         $notifier = new Updater\StatusNotifier($this->container->get('db'));
 
         foreach ($servers as $server) {
-            $status_old = ($server['status'] == 'on') ? true : false;
-            $status_new = $updater->
-            update($server['server_id']);
+            $status_old = $server['status']; // ($server['status'] == 'on') ? true : false;
+            $status_new = $updater->update($server['server_id']);
             // notify the nerds if applicable
             $notifier->notify($server['server_id'], $status_old, $status_new);
             // clean-up time!! archive all records
