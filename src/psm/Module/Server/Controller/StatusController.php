@@ -96,9 +96,9 @@ class StatusController extends AbstractServerController
                 array('mod' => 'server', 'action' => 'view', 'id' => $server['server_id'], 'back_to' => 'server_status')
             );
 
-            if ($server['status'] == "off") {
+            if ($server['status'] == "off"  || $server['status'] == "red" ) {
                 $layout_data['servers_offline'][] = $server;
-            } elseif ($server['warning_threshold_counter'] > 0) {
+            } elseif ($server['warning_threshold_counter'] > 0 || $server['status'] == "yellow" ) {
                 $layout_data['servers_warning'][] = $server;
             } elseif ($server['ssl_cert_expired_time'] !== null && $server['ssl_cert_expiry_days'] > 0) {
                 $layout_data['servers_warning'][] = $server;

@@ -78,7 +78,8 @@ class ServerController extends AbstractServerController
             $modal->setMessage(psm_get_lang('servers', 'delete_message'));
             $modal->setOKButtonLabel(psm_get_lang('system', 'delete'));
 
-            $sidebar->addButton(
+         /*
+	    $sidebar->addButton(
                 'add_new',
                 psm_get_lang('system', 'add_new'),
                 psm_build_url(array('mod' => 'server', 'action' => 'edit')),
@@ -86,6 +87,7 @@ class ServerController extends AbstractServerController
                 'success',
                 psm_get_lang('system', 'add_new')
             );
+	  */
         }
 
         $sidebar->addButton(
@@ -559,7 +561,7 @@ class ServerController extends AbstractServerController
             'label_fieldset_monitoring' => psm_get_lang('servers', 'fieldset_monitoring'),
             'label_fieldset_permissions' => psm_get_lang('servers', 'fieldset_permissions'),
             'label_permissions' => psm_get_lang('servers', 'permissions'),
-            'label_port' => psm_get_lang('servers', 'port'),
+            
             'label_custom_port' => psm_get_lang('servers', 'custom_port'),
             'label_popular_ports' => psm_get_lang('servers', 'popular_ports'),
             'label_request_method' => psm_get_lang('servers', 'request_method'),
@@ -586,7 +588,7 @@ class ServerController extends AbstractServerController
             'label_header_name_description' => psm_get_lang('servers', 'header_name_description'),
             'label_header_value_description' => psm_get_lang('servers', 'header_value_description'),
             'label_last_check' => psm_get_lang('servers', 'last_check'),
-            'label_rtime' => psm_get_lang('servers', 'latency'),
+            
             'label_last_online' => psm_get_lang('servers', 'last_online'),
             'label_last_offline' => psm_get_lang('servers', 'last_offline'),
             'label_last_output' => psm_get_lang('servers', 'last_output'),

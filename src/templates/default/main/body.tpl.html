@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>{{ title }}{% if subtitle %} - {{ subtitle }}{% endif %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="PHP Server Monitor - {{ subtitle }}">
+	<meta name="description" content="ION Server Monitor - {{ subtitle }}">
 	<meta name="robots" content="noindex" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="manifest" href="manifest.json">
@@ -40,14 +40,14 @@
 
             <div class="collapse navbar-collapse" id="navbar">
                 {{ html_menu|raw }}
-            </div>
+            </div>:wq
         </div>
 	</nav>
 	{{ html_modal|raw }}
 	<main role="main" class="container-fluid px-4">
 		<noscript>
 			<div class="alert alert-danger" role="alert">
-				<b>Javascript is disabled!</b> PHP Server Monitor works best with JavaScript enabled!
+				<b>Javascript is disabled!</b>Server Monitor works best with JavaScript enabled!
 			</div>
 		</noscript>
 		{% if not user_level and subtitle %}<h1>{{ subtitle }}</h1>{% endif %}
@@ -67,10 +67,9 @@
 	<footer class="footer" role="contentinfo">
 		<div class="container">
 			<span class="text-muted">
-				Powered by
-				<a href="https://github.com/phpservermon/phpservermon/" target="_blank" rel="noopener">
-					PHP Server Monitor {{ version }}.
-				</a><span style="color:red;">{{ update_available|raw }}</span><a href="#" class="float-right">{{ label_back_to_top }}</a>
+		
+			&nbsp;
+
 			</span>
 		</div>
 	</footer>

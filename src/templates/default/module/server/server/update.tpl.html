@@ -6,49 +6,16 @@
 		<div class="col">
 			<!-- Label -->
 			{{ macro.input_field("text", "label", null, "label", label_label, edit_value_label, null, "255", null, null, null, null, true, true) }}
-			<!-- IP -->
-			{{ macro.input_field("text", "ip", null, "ip", label_domain, edit_value_ip, null, "255", null, null, null, null, true) }}
 			<!-- Type -->
 			<div class="form-group">
-				<label for="type">{{ label_type }}</label>
-				<select id="type" name="type" class="custom-select" required>
-					<option value="">{{ label_please_select }}</option>
-					<option value="ping" {{ edit_type_selected_ping|raw }}>{{ label_ping }}</option>
-					<option value="service" {{ edit_type_selected_service|raw }}>{{ label_service }}</option>
-					<option value="website" {{ edit_type_selected_website|raw }}>{{ label_website }}</option>
-				</select>
+			   <label for="type">{{ label_type }}</label>
+			     <select id="type" name="type" class="custom-select" required>
+			       <option value="">{{ label_please_select }}</option>
+			       <option value="ping" {{ edit_type_selected_ping|raw }}>{{ label_ping }}</option>
+  			       <option value="service" {{ edit_type_selected_service|raw }}>{{ label_service }}</option>
+			      </select>
 			</div>
-			<!-- Port -->
-			<div class="form-group types typeService">
-				<label for="popular_ports">{{ label_port }}</label>
-				<select id="popular_ports" name="popular_ports" class="custom-select">
-					<option {% if not edit_value_port %}selected {% endif %} disabled>{{ label_please_select }}</option>
-					<option {% if edit_value_port not in [0, 80, 443, 21, 25, 465, 110, 995, 143, 993, 22, 389, 3306, 115, 43, 53,
-					 3389] %} selected {% endif %} value="custom">{{ label_custom_port }}</option>
-					<optgroup label="{{ label_popular_ports }}">
-						<option {% if edit_value_port==80 %}selected {% endif %}value="80">HTTP (80)</option>
-						<option {% if edit_value_port==443 %}selected {% endif %}value="443">HTTPS (443)</option>
-						<option {% if edit_value_port==21 %}selected {% endif %}value="21">FTP (21)</option>
-						<option {% if edit_value_port==25 %}selected {% endif %}value="25">SMTP (25)</option>
-						<option {% if edit_value_port==465 %}selected {% endif %}value="465">SMTP Secure (465)</option>
-						<option {% if edit_value_port==110 %}selected {% endif %}value="110">POP3 (110)</option>
-						<option {% if edit_value_port==995 %}selected {% endif %}value="995">POP3 Secure (995)</option>
-						<option {% if edit_value_port==143 %}selected {% endif %}value="143">IMAP (143)</option>
-						<option {% if edit_value_port==993 %}selected {% endif %}value="993">IMAP over SSL (993)</option>
-						<option {% if edit_value_port==22 %}selected {% endif %}value="22">SSH (22)</option>
-						<option {% if edit_value_port==389 %}selected {% endif %}value="389">LDAP (389)</option>
-						<option {% if edit_value_port==3306 %}selected {% endif %}value="3306">MySQL (3306)</option>
-						<option {% if edit_value_port==115 %}selected {% endif %}value="115">SFTP (115)</option>
-						<option {% if edit_value_port==43 %}selected {% endif %}value="43">WHOIS (43)</option>
-						<option {% if edit_value_port==53 %}selected {% endif %}value="53">BIND (53)</option>
-						<option {% if edit_value_port==3389 %}selected {% endif %}value="3389">RDP (3389)</option>
-					</optgroup>
-				</select>
-			</div>
-			<!-- Custom port -->
-            {{ macro.input_field("number", "port", "port types typeService", "port", label_custom_port, edit_value_port, null, "5") }}
-            <!-- SSL Cert check -->
-            {{ macro.input_field("number", "ssl_cert_expiry_days", "types typeWebsite", "ssl_cert_expiry_days", label_ssl_cert_expiry_days, edit_value_ssl_cert_expiry_days, 0, "5", 'ssl_cert_help', label_ssl_cert_expiry_days_description) }}
+
 			<!-- Request method -->
 			<div class="form-group types typeWebsite">
 				<label for="popular_request_methods">{{ label_request_method }}</label>
@@ -116,8 +83,6 @@
 			</div>
 			<!-- Warning threshold -->
 			{{ macro.input_field("number", "warning_threshold", null, "warning_threshold", label_warning_threshold, edit_value_warning_threshold, "0", "5", 'warning_threshold_help', label_warning_threshold_description) }}
-			<!-- Timeout -->
-			{{ macro.input_field("number", "timeout", null, "timeout", label_timeout, edit_value_timeout, default_value_timeout, "10", 'timeout_help', label_timeout_description) }}
 		</div>
 	</fieldset>
 	<fieldset class="types typeWebsite">

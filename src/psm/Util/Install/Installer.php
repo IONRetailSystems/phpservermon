@@ -216,14 +216,14 @@ class Installer
                 `level` tinyint(2) unsigned NOT NULL DEFAULT '20',
                 `name` varchar(255) NOT NULL,
                 `mobile` varchar(15) NOT NULL,
-                `discord` varchar(255) NOT NULL,
-                `pushover_key` varchar(255) NOT NULL,
-                `pushover_device` varchar(255) NOT NULL,
-                `webhook_url` varchar(255) NOT NULL,
+                `discord` varchar(255) NOT NULL DEFAULT '',
+                `pushover_key` varchar(255) NOT NULL DEFAULT '',
+                `pushover_device` varchar(255) NOT NULL DEFAULT '',
+                `webhook_url` varchar(255) NOT NULL DEFAULT '',
                 `webhook_json` varchar(255) NOT NULL DEFAULT '{\"text\":\"servermon: #message\"}',
-                `telegram_id` varchar(255) NOT NULL ,
-                `jabber` varchar(255) NOT NULL,
-                `email` varchar(255) NOT NULL,
+                `telegram_id` varchar(255) NOT NULL DEFAULT '',
+                `jabber` varchar(255) NOT NULL DEFAULT '',
+                `email` varchar(255) NOT NULL DEFAULT '',
                 PRIMARY KEY (`user_id`),
                 UNIQUE KEY `unique_username` (`user_name`)
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8;",
@@ -724,6 +724,7 @@ class Installer
                     ('jabber_username', ''),
                     ('jabber_domain', ''),
                     ('jabber_password', '');";
+
         $this->execSQL($queries);
     }
 
@@ -753,11 +754,6 @@ class Installer
             ADD `discord` VARCHAR( 255 ) NOT NULL AFTER `mobile`;";
         $queries[] = "ALTER TABLE `" . PSM_DB_PREFIX . "servers` 
             ADD `discord` ENUM( 'yes','no' ) NOT NULL DEFAULT 'yes' AFTER  `sms`;";
-        $queries[] = "INSERT INTO `" . PSM_DB_PREFIX . "users` (
-            `user_name`, `level`, `name`, `email`)
-            VALUES ('__PUBLIC__', 30, 'Public page', 'publicpage@psm.psm')";
         $this->execSQL($queries);
-
-        $this->log('Public page is now available. Added user \'__PUBLIC__\'. See documentation for more info.');
     }
 }
