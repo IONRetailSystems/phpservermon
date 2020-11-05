@@ -130,7 +130,7 @@ class StatusUpdater
 
                 break;
    			case 'server':
-				$this->status_new = $this->UpdateServer($max_runs)
+				$this->status_new = $this->UpdateServer($max_runs);
 	            // update server status
                 $save = array(
                     'last_check' => date('Y-m-d H:i:s'),
