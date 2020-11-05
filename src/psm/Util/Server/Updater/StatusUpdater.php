@@ -135,7 +135,7 @@ class StatusUpdater
                 $save = array(
                     'last_check' => date('Y-m-d H:i:s'),
                     'error' => $this->error,
-                    'rtime' => $this->rtime
+                    'rtime' => $this->rtime,
                     'label' => $this->label,
                     'status'=> $this->status,
                     'server_status'=> $this->server_status,
