@@ -36,7 +36,7 @@ namespace psm\Util\Server\Updater;
 use psm\Service\Database;
 
 $root = $_SERVER["DOCUMENT_ROOT"];
-include $root . 'ChromePhp.php';
+include $root . '/ChromePhp.php';
 ChromePhp::log('Hello console!');
 ChromePhp::log($_SERVER);
 ChromePhp::warn('something went wrong!');
