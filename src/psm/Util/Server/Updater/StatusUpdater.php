@@ -248,7 +248,7 @@ class StatusUpdater
 		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/Server." . $serverIp . ".*") as $filename) {
 
 			$server_details = parse_ini_file($filename);
-
+		}
 			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
