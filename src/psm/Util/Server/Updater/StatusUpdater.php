@@ -46,6 +46,18 @@ class StatusUpdater
     public $rtime = 0;
 
     public $status_new = false;
+	
+    /*
+     * some new fields for flag file monitoring
+     */
+	
+    public $label = '';
+    public $status = '';
+    public $server_status = '';
+    public $sensor_status = '';
+    public $last_counts = '';
+    public $last_online   = '';
+  	
 
     /**
      * Database service
@@ -219,7 +231,6 @@ class StatusUpdater
         return $status;
     }
 
-xxxx
    /**
      * Check the Server Flags Files
      * @param int $max_runs
@@ -238,16 +249,15 @@ xxxx
 
 			$server_details = parse_ini_file($filename);
 
-			$status = 'green';
+			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
-				$status = 'yellow';
+				$this->status = 'yellow';
 			}
 	
 			if(strtolower($server_details['sensors_state']) !='ok') {
-				$status = 'red';
+				$this->status = 'red';
 			}
-
             /*
              * What is going to change ?
              * Label if name of system has changed
@@ -255,10 +265,16 @@ xxxx
              * Status could be changed.
              */ 
             
-            
+	     $this->label         = $server_details['district'];	
+ 	     $this->server_status = $server_details['server_status'],
+    	     $this->sensor_status = $server_details['sensors_state'];
+   	     $this->last_counts   = $server_details['last_counts'];
+	     $this->last_online   = $server_details['status_set']));
 
+	return $status;
+			
+	}
 
-xxxxx   
     /**
      * Check the current server as a service
      * @param int $max_runs
