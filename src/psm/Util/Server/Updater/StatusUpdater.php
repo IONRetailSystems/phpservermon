@@ -130,6 +130,7 @@ class StatusUpdater
 
                 break;
    			case 'server':
+			        echo 'In Server<br>';
 				$this->status_new = $this->UpdateServer($max_runs);
 	            // update server status
                 $save = array(
@@ -142,6 +143,7 @@ class StatusUpdater
                     'sensor_status'=> $this->sensor_status,
                     'last_counts'  => $this->last_counts,
                     'last_online'  => $this->last_online);
+		print_r($save);
                 break;
 
             case 'service':
@@ -249,6 +251,9 @@ class StatusUpdater
 
 			$server_details = parse_ini_file($filename);
 		}
+	    
+	    	print_r($server_details);
+	    
 			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
