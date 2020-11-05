@@ -266,10 +266,10 @@ class StatusUpdater
              */ 
             
 	     $this->label         = $server_details['district'];	
- 	     $this->server_status = $server_details['server_status'],
+ 	     $this->server_status = $server_details['server_status'];
     	     $this->sensor_status = $server_details['sensors_state'];
    	     $this->last_counts   = $server_details['last_counts'];
-	     $this->last_online   = $server_details['status_set']));
+	     $this->last_online   = $server_details['status_set'];
 
 	return $status;
 			
