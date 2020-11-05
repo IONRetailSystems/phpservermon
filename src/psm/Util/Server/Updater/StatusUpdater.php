@@ -35,11 +35,6 @@
 namespace psm\Util\Server\Updater;
 use psm\Service\Database;
 
-ChromePhp::log('Hello console!');
-ChromePhp::log($_SERVER);
-ChromePhp::warn('something went wrong!');
-
-
 class StatusUpdater
 {
     public $error = '';
