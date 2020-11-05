@@ -1,10 +1,5 @@
 <?php
 
-include 'ChromePhp.php';
-ChromePhp::log('Hello console!');
-ChromePhp::log($_SERVER);
-ChromePhp::warn('something went wrong!');
-
 /**
  * PHP Server Monitor
  * Monitor your servers and websites.
@@ -39,6 +34,12 @@ ChromePhp::warn('something went wrong!');
  */
 namespace psm\Util\Server\Updater;
 use psm\Service\Database;
+
+include 'ChromePhp.php';
+ChromePhp::log('Hello console!');
+ChromePhp::log($_SERVER);
+ChromePhp::warn('something went wrong!');
+
 
 class StatusUpdater
 {
