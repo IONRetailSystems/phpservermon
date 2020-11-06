@@ -52,6 +52,8 @@ namespace {
         if (isset($GLOBALS['sm_lang'])) {
             $lang = $GLOBALS['sm_lang'];
             $not_found = false;
+            echo 'Line 55 - Searching: ' . $lang . ' for: ' . $translation . "\n";
+            
             foreach ($args as $translation) {
                 // if translation does not exist, use default translation
                 if (!isset($lang[$translation])) {
