@@ -269,14 +269,13 @@ class StatusUpdater
 			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
-				echo strtolower($server_details['server_status']);				
 				$this->status = 'yellow';
 			}
 	
 			if(strtolower($server_details['sensors_state']) !='ok') {
 				$this->status = 'red';
 			}
-            echo '<br>status: ' . $this->status . '<br>';
+            
 	    /*
              * What is going to change ?
              * Label if name of system has changed
