@@ -174,6 +174,9 @@ class StatusUpdater
         // so that the warnings can still be reviewed in the server history.
         psm_log_uptime($this->server_id, (int) $this->status_new, $this->rtime);
 
+	/* this more relevant to server monitoring..
+	 * needs to be revisited.
+	 
         if ($this->status_new == true) {
             // if the server is on, add the last_online value and reset the error threshold counter
             $save['status'] = 'on';
@@ -204,6 +207,8 @@ class StatusUpdater
                 }
             }
         }
+	*/
+	    
         $this->db->save(PSM_DB_PREFIX . 'servers', $save, array('server_id' => $this->server_id));
 
         return $this->status_new;
