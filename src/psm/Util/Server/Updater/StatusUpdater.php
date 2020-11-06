@@ -258,16 +258,16 @@ class StatusUpdater
 			if($fmt == 0) {
 				$earliest_file = $filename;
 				$fmt           = filemtime($filename);
-			} elseif(filemtime($filename) < $fmt ) {
+			} elseif(filemtime($filename) > $fmt ) {
+				// remove the old file
+				unlink($earliest_file);
 				$earliest_file = $filename;
 				$fmt           = filemtime($filename);
 			}
 		}
-		echo $earliest_file . '<br>'
-	    	$server_details = parse_ini_file($earliest_file);
+		$server_details = parse_ini_file($earliest_file);
 	    	print_r($server_details);
-		die();
-	    
+		
 			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
