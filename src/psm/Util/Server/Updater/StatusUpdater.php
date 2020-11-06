@@ -130,8 +130,7 @@ class StatusUpdater
 
                 break;
    			case 'server':
-			        echo 'In Server<br>';
-				$this->status_new = $this->UpdateServer($max_runs);
+			        $this->status_new = $this->UpdateServer($max_runs);
 	            // update server status
                 $save = array(
                     'last_check' => date('Y-m-d H:i:s'),
@@ -252,7 +251,6 @@ class StatusUpdater
     {
         $serverIp = $this->server['ip'];
 	$fmt = 0;
-echo 'in update server <br>';
 	    
 		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/Server." . $serverIp . ".*") as $filename) {
 	
@@ -272,16 +270,14 @@ echo 'in update server <br>';
 			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
-				echo strtolower($server_details['server_status']);
-				die();
-				
+				echo strtolower($server_details['server_status']);				
 				$this->status = 'yellow';
 			}
 	
 			if(strtolower($server_details['sensors_state']) !='ok') {
 				$this->status = 'red';
 			}
-            echo 'status: ' . $this->status . '<br>';
+            echo '<br>status: ' . $this->status . '<br>';
 	    /*
              * What is going to change ?
              * Label if name of system has changed
