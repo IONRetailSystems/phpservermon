@@ -142,8 +142,7 @@ class StatusUpdater
                     'sensor_status'=> $this->sensor_status,
                     'last_counts'  => $this->last_counts,
                     'last_online'  => $this->last_online);
-		print_r($save);
-                break;
+		break;
 
             case 'service':
                 $this->status_new = $this->updateService($max_runs);
