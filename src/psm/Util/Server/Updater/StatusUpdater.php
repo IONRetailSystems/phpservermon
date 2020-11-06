@@ -271,6 +271,9 @@ class StatusUpdater
 			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
+				echo strtolower($server_details['server_status']);
+				die();
+				
 				$this->status = 'yellow';
 			}
 	
