@@ -234,6 +234,8 @@ class StatusNotifier
             return false;
         }
 
+        echo 'Save Logs: ' . $this->save_logs . "\n";
+        
         // first add to log (we use the same text as the SMS message because its short..)
         if ($this->save_logs) {
             psm_add_log(
