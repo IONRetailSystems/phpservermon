@@ -206,7 +206,7 @@ class StatusNotifier
 
         $notify = false;
 
-        echo "Alert Type: " . psm_get_conf('alert_type) . "\n";
+        echo "Alert Type: " . psm_get_conf('alert_type') . "\n";
         
         // check which type of alert the user wants
         switch (psm_get_conf('alert_type')) {
