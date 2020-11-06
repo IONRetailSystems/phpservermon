@@ -252,7 +252,8 @@ class StatusUpdater
     {
         $serverIp = $this->server['ip'];
 	$fmt = 0;
-
+echo 'in update server <br>';
+	    
 		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/Server." . $serverIp . ".*") as $filename) {
 	
 			if($fmt == 0) {
@@ -280,7 +281,8 @@ class StatusUpdater
 			if(strtolower($server_details['sensors_state']) !='ok') {
 				$this->status = 'red';
 			}
-            /*
+            echo 'status: ' . $this->status . '<br>';
+	    /*
              * What is going to change ?
              * Label if name of system has changed
              * Last count will be a change
