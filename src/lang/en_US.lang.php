@@ -427,77 +427,76 @@ $sm_lang = array(
         'off_email_subject' => 'IMPORTANT: Server \'%LABEL%\' is DOWN',
         'off_email_body' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
         'off_discord_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
-        'off_email_body' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port:
- %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'off_email_body' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
         'off_webhook_title' => 'Server \'%LABEL%\' is DOWN',
-        'off_webhook_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP:
- %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'off_webhook_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
         'off_pushover_title' => 'Server \'%LABEL%\' is DOWN',
         'off_pushover_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
         'off_telegram_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
         'off_jabber_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
-        'on_sms' => 'Server \'%LABEL%\' is RUNNING: ip=%IP%, port=%PORT%, it was down for %LAST_OFFLINE_DURATION%',
+	'on_sms' => 'Server \'%LABEL%\' is RUNNING: ip=%IP%, port=%PORT%, it was down for %LAST_OFFLINE_DURATION%',
         'on_email_subject' => 'IMPORTANT: Server \'%LABEL%\' is RUNNING',
-        'on_email_body' => 'Server \'%LABEL%\' is running again, it was down for
- %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
-        'on_discord_message' => 'Server \'%LABEL%\' is running again, it was down for:
- %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'on_email_body' => 'Server \'%LABEL%\' is running again, it was down for %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:  %DATE%',
+        'on_discord_message' => 'Server \'%LABEL%\' is running again, it was down for:  %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
         'on_webhook_title' => 'Server \'%LABEL%\' is RUNNING',
-        'on_webhook_message' => 'Server \'%LABEL%\' is running again, it was down for
- %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
+        'on_webhook_message' => 'Server \'%LABEL%\' is running again, it was down for %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
         'on_pushover_title' => 'Server \'%LABEL%\' is RUNNING',
-        'on_pushover_message' => 'Server \'%LABEL%\' is running again, it was down for
- %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
-        'on_telegram_message' => 'Server \'%LABEL%\' is running again, it was down for:
- %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
-        'on_jabber_message' => 'Server \'%LABEL%\' is running again, it was down for:
- %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
-        'combi_off_email_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Error:
- %ERROR%</li><li>Date: %DATE%</li></ul>',
-        'combi_off_discord_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Error: %ERROR%<br>-
- Date: %DATE%<br><br>',
-        'combi_off_webhook_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Error:
- %ERROR%</li><li>Date: %DATE%</li></ul>',
-        'combi_off_pushover_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Error:
- %ERROR%</li><li>Date: %DATE%</li></ul>',
-        'combi_off_telegram_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Error: %ERROR%<br>-
- Date: %DATE%<br><br>',
-        'combi_off_jabber_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Error: %ERROR%<br>-
- Date: %DATE%<br><br>',
-        'combi_on_email_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Downtime:
- %LAST_OFFLINE_DURATION%</li><li>Date: %DATE%</li></ul>',
-        'combi_on_webhook_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port:
- %PORT%</li><li>Downtime: %LAST_OFFLINE_DURATION%</li><li>Date:
- %DATE%</li></ul>',
-        'combi_on_discord_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>-
- Downtime: %LAST_OFFLINE_DURATION%<br>- Date: %DATE%<br><br>',
-        'combi_on_pushover_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port:
- %PORT%</li><li>Downtime: %LAST_OFFLINE_DURATION%</li><li>Date:
- %DATE%</li></ul>',
-        'combi_on_telegram_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Downtime:
- %LAST_OFFLINE_DURATION%<br>- Date: %DATE%<br><br>',
-        'combi_on_jabber_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Downtime:
- %LAST_OFFLINE_DURATION%<br>- Date: %DATE%<br><br>',
+        'on_pushover_message' => 'Server \'%LABEL%\' is running again, it was down for %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'on_telegram_message' => 'Server \'%LABEL%\' is running again, it was down for: %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'on_jabber_message' => 'Server \'%LABEL%\' is running again, it was down for: %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+	'green_sms' => 'Server \'%LABEL%\' is Functioning Properly, No Sensor or Server Issues Observed. Previous Issues lasted for %LAST_OFFLINE_DURATION%',
+        'green_email_subject' => 'IMPORTANT: Server \'%LABEL%\' is Functioning Properly',
+        'green_email_body' => 'Server \'%LABEL%\' is Functioning Properly, No Sensor or Server Issues Observed. Previous issues lasted for %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:  %DATE%',
+        'green_discord_message' => 'Server \'%LABEL%\' is Functioning Properly, No Sensor or Server Issues Observed. Prior Issues lasted for:  %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'green_webhook_title' => 'Server \'%LABEL%\' is RUNNING',
+        'green_webhook_message' => 'Server \'%LABEL%\' is running again, it was down for %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'green_pushover_title' => 'Server \'%LABEL%\' is RUNNING',
+        'green_pushover_message' => 'Server \'%LABEL%\' is running again, it was down for %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'green_telegram_message' => 'Server \'%LABEL%\' is Functioning Properly, No Sensor or Server Issues Observed. Previous Issues lasted for: %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'green_jabber_message' => 'Server \'%LABEL%\' is running again, it was down for: %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'yellow_sms' => 'Server \'%LABEL%\' reports Server issues. System is functioning however server may require service. Error=%ERROR%',
+        'yellow_email_subject' => 'IMPORTANT: Server \'%LABEL%\' reports Server issues. System is functioning however server may require service.',
+        'yellow_email_body' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'yellow_discord_message' => 'Server Reports Issues:<br><br>Server: %LABEL%<br>Error: %ERROR%<br>Date: %DATE%',
+        'yellow_email_body' => 'Server Issues Logged. System is functioning however server may require service.:<br><br>Server: %LABEL%<br>Error: %ERROR%<br>Date: %DATE%',
+        'yellow_webhook_title' => 'Server \'%LABEL%\' is DOWN',
+        'yellow_webhook_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'yellow_pushover_title' => 'Server \'%LABEL%\' is DOWN',
+        'yellow_pushover_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'yellow_telegram_message' => 'Server Issues Reported. System is functioning however server may require service.:<br><br>Server: %LABEL%<br>Error: %ERROR%<br>Date: %DATE%',
+        'yellow_jabber_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'red_sms' => 'PAX System Down: \'%LABEL%\' Error=%ERROR%',
+        'red_email_subject' => 'IMPORTANT: PAX System Down: \'%LABEL%\'',
+        'red_email_body' => 'PAX System reports Sensor Problems: Server: %LABEL%<br>Error: %ERROR%<br>Date: %DATE%',
+        'red_discord_message' => 'PAX System reports Sensor Problems: Server: %LABEL%<br>Error: %ERROR%<br>Date: %DATE%',
+        'red_email_body' => 'PAX System reports Sensor Problems: Server: %LABEL%<br>Error: %ERROR%<br>Date: %DATE%',
+        'red_webhook_title' => 'Server \'%LABEL%\' is DOWN',
+        'red_webhook_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'red_pushover_title' => 'Server \'%LABEL%\' is DOWN',
+        'red_pushover_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'red_telegram_message' => 'PAX System reports Sensor Problems: Server: %LABEL%<br>Error: %ERROR%<br>Date: %DATE%',
+        'red_jabber_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+	'combi_off_email_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Error: %ERROR%</li><li>Date: %DATE%</li></ul>',
+        'combi_off_discord_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Error: %ERROR%<br>- Date: %DATE%<br><br>',
+        'combi_off_webhook_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Error: %ERROR%</li><li>Date: %DATE%</li></ul>',
+        'combi_off_pushover_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Error: %ERROR%</li><li>Date: %DATE%</li></ul>',
+        'combi_off_telegram_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Error: %ERROR%<br>- Date: %DATE%<br><br>',
+        'combi_off_jabber_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Error: %ERROR%<br>- Date: %DATE%<br><br>',
+        'combi_on_email_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Downtime: %LAST_OFFLINE_DURATION%</li><li>Date: %DATE%</li></ul>',
+        'combi_on_webhook_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Downtime: %LAST_OFFLINE_DURATION%</li><li>Date: %DATE%</li></ul>',
+        'combi_on_discord_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Downtime: %LAST_OFFLINE_DURATION%<br>- Date: %DATE%<br><br>',
+        'combi_on_pushover_message' => '<ul><li>Server: %LABEL%</li><li>IP: %IP%</li><li>Port: %PORT%</li><li>Downtime: %LAST_OFFLINE_DURATION%</li><li>Date: %DATE%</li></ul>',
+        'combi_on_telegram_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Downtime: %LAST_OFFLINE_DURATION%<br>- Date: %DATE%<br><br>',
+        'combi_on_jabber_message' => '- Server: %LABEL%<br>- IP: %IP%<br>- Port: %PORT%<br>- Downtime: %LAST_OFFLINE_DURATION%<br>- Date: %DATE%<br><br>',
         'combi_email_subject' => 'IMPORTANT: \'%UP%\' servers UP again, \'%DOWN%\' servers DOWN',
         'combi_webhook_subject' => '\'%UP%\' servers UP again, \'%DOWN%\' servers DOWN',
         'combi_pushover_subject' => '\'%UP%\' servers UP again, \'%DOWN%\' servers DOWN',
-        'combi_email_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following
- servers are up again:</b><br>%UP_SERVERS%',
-        'combi_discord_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following
- servers are up again:</b><br>%UP_SERVERS%',
-        'combi_webhook_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following
- servers are up again:</b><br>%UP_SERVERS%',
-        'combi_pushover_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following
- servers are up again:</b><br>%UP_SERVERS%',
-        'combi_telegram_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following
- servers are up again:</b><br>%UP_SERVERS%',
-        'combi_jabber_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following
- servers are up again:</b><br>%UP_SERVERS%',
+        'combi_email_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following servers are up again:</b><br>%UP_SERVERS%',
+        'combi_discord_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following servers are up again:</b><br>%UP_SERVERS%',
+        'combi_webhook_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following servers are up again:</b><br>%UP_SERVERS%',
+        'combi_pushover_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following servers are up again:</b><br>%UP_SERVERS%',
+        'combi_telegram_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following servers are up again:</b><br>%UP_SERVERS%',
+        'combi_jabber_message' => '<b>The following servers went down:</b><br>%DOWN_SERVERS%<br><b>The following servers are up again:</b><br>%UP_SERVERS%',
     ),
     'login' => array(
         'welcome_usermenu' => 'Welcome, %user_name%',
