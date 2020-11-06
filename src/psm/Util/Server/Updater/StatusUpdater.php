@@ -293,7 +293,7 @@ class StatusUpdater
    	     $this->last_counts   = $server_details['last_counts'];
 	     $this->last_online   = $server_details['status_set'];
 
-	return $status;
+	return $this->status;
 			
 	}
 
