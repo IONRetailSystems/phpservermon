@@ -246,13 +246,22 @@ class StatusUpdater
     protected function updateServer($max_runs, $run = 1)
     {
         $serverIp = $this->server['ip'];
+	$fmt = 0;
 
 		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/Server." . $serverIp . ".*") as $filename) {
-
-			$server_details = parse_ini_file($filename);
+	
+			if($fmt == 0) {
+				$earliest_file = $filename;
+				$fmt           = filemtime($filename);
+			} elseif(filemtime($filename) < $fmt ) {
+				$earliest_file = $filename;
+				$fmt           = filemtime($filename);
+			}
 		}
-	    
+		echo $earliest_file . '<br>'
+	    	$server_details = parse_ini_file($earliest_file);
 	    	print_r($server_details);
+		die();
 	    
 			$this->status = 'green';
 
