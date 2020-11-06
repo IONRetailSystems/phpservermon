@@ -84,6 +84,12 @@ class UpdateManager implements ContainerAwareInterface
         foreach ($servers as $server) {
             $status_old = $server['status']; // ($server['status'] == 'on') ? true : false;
             $status_new = $updater->update($server['server_id']);
+		
+	    echo 'Status Old: ' . $status_old . '<br>';
+	    echo 'Status New: ' . $status_new . '<br>';
+	 
+	    die();
+		
             // notify the nerds if applicable
             $notifier->notify($server['server_id'], $status_old, $status_new);
             // clean-up time!! archive all records
