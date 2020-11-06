@@ -250,8 +250,12 @@ class StatusUpdater
     {
         $serverIp = $this->server['ip'];
 	$fmt = 0;
+	
+	echo 'Server IP: ' . $this->server['ip'] . "\n";
 	    
 		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/Server." . $serverIp . ".*") as $filename) {
+	
+			echo 'File Name: ' . $filename . "\n";
 	
 			if($fmt == 0) {
 				$earliest_file = $filename;
