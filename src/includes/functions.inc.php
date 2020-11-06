@@ -68,9 +68,11 @@ namespace {
         }
 
         $lang = $GLOBALS['sm_lang_default'];
-            echo 'Line 55 - Searching: ' . $lang . ' for: ' . $translation . "\n";
+            echo 'Line 71 - Searching: ' . print_r($lang) . "\n";
+            echo 'For: ' . print_r($translation) . "\n";
 
         foreach ($args as $translation) {
+            echo 'X : ' . $translation . "\n";
             $lang = $lang[$translation];
         }
         return $lang;
