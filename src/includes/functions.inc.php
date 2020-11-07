@@ -365,17 +365,14 @@ namespace {
     function psm_parse_msg($status, $type, $vars, $combi = false)
     {
         
-        echo 'psm_parse_msg status: ' . $status . "\n";
-        
+        // amended to add the _ just like the on or off
         if (is_bool($status)) {
             $status = ($status === true) ? 'on_' : 'off_';
+        } else {
+            $status .= '_';
         }
 
-        echo 'psm_parse_msg status: ' . $status . "\n";
-        
         $combi = ($combi === true) ? 'combi_' : '';
-
-        echo 'combi . status: ' . $combi . $status . "\n";
         
         $message = psm_get_lang('notifications', $combi . $status . $type);
 
