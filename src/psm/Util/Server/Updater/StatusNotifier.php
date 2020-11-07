@@ -243,6 +243,7 @@ class StatusNotifier
                 'status',
                 psm_parse_msg($status_new, 'sms', $this->server)
             );
+            echo 'PSM: ' . psm_parse_msg($status_new, 'sms', $this->server) . "\n";
         }
 
         $users = $this->getUsers($this->server_id);
