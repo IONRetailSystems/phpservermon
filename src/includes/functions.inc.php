@@ -364,12 +364,19 @@ namespace {
      */
     function psm_parse_msg($status, $type, $vars, $combi = false)
     {
+        
+        echo 'psm_parse_msg status: ' . $status . "\n";
+        
         if (is_bool($status)) {
             $status = ($status === true) ? 'on_' : 'off_';
         }
 
+        echo 'psm_parse_msg status: ' . $status . "\n";
+        
         $combi = ($combi === true) ? 'combi_' : '';
 
+        echo 'combi . status: ' . $combi . $status . "\n";
+        
         $message = psm_get_lang('notifications', $combi . $status . $type);
 
         if (!$message) {
