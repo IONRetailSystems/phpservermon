@@ -87,6 +87,14 @@ class UpdateManager implements ContainerAwareInterface
 		
 	    echo 'Status Old: ' . $status_old . "\n";
 	    echo 'Status New: ' . $status_new . "\n";
+		
+	    if($status_old=='green') {
+	       $status_new = 'yellow');
+	    } elseif($status_old=='yellow') {
+		$status_new = 'red');
+	    } elseif($status_old=='red') {
+		$status_new = 'green');
+	    }	
 	 		
             // notify the nerds if applicable
             $notifier->notify($server['server_id'], $status_old, $status_new);
