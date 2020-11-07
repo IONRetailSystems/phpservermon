@@ -268,16 +268,20 @@ class StatusUpdater
 			}
 		}
 		$server_details = parse_ini_file($earliest_file);
-	    	print_r($server_details);
-		
+	    	/*
+		print_r($server_details);
+		*/
+	    
 			$this->status = 'green';
 
 			if(strtolower($server_details['server_status']) != 'ok') {
 				$this->status = 'yellow';
+				$this->error = $server_details['server_status'];
 			}
 	
 			if(strtolower($server_details['sensors_state']) !='ok') {
 				$this->status = 'red';
+				$this->error = $server_details['sensors_state'];
 			}
             
 	    /*
@@ -292,7 +296,7 @@ class StatusUpdater
     	     $this->sensor_status = $server_details['sensors_state'];
    	     $this->last_counts   = $server_details['last_counts'];
 	     $this->last_online   = $server_details['status_set'];
-
+	    
 	return $this->status;
 			
 	}
