@@ -463,6 +463,8 @@ class StatusNotifier
     protected function notifyByDiscord($users, $combi = array())
     {
 
+        print_r($users);
+        
         $message_log = key_exists('message', $combi) ?
             $combi['message'] :
             psm_parse_msg($this->status_new, 'discord_message', $this->server);
