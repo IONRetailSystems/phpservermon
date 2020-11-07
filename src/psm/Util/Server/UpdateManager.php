@@ -89,11 +89,11 @@ class UpdateManager implements ContainerAwareInterface
 	    echo 'Status New: ' . $status_new . "\n";
 		
 	    if($status_old=='green') {
-	       $status_new = 'yellow');
+	       $status_new = 'yellow';
 	    } elseif($status_old=='yellow') {
-		$status_new = 'red');
+		$status_new = 'red';
 	    } elseif($status_old=='red') {
-		$status_new = 'green');
+		$status_new = 'green';
 	    }	
 	 		
             // notify the nerds if applicable
