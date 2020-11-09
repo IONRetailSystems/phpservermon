@@ -284,9 +284,9 @@ class StatusUpdater
 		
 		$this->status = 'green';
 
-	    	if(strtolower($server_details['sensors_state']) !='ok') {
+	    	if(strtolower($server_details['osd_state']) !='osd_state_ok') {
 			$this->status = 'red';
-			$this->error = $server_details['sensors_state'];
+			$this->error = $server_details['osd_state'];
 		}
             
 	    /*
