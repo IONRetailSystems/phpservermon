@@ -68,7 +68,7 @@ class UpdateManager implements ContainerAwareInterface
 		$sql  = "Select ip as result  from psm_servers where ip = '$ip'";
 		$stmt = $this->container->get('db')->query($sql);
 		
-		if(!count($stmt) {
+		if(!count($stmt)) {
 		    	echo 'Not Found' . "\n";
      			$sql = "INSERT INTO psm_servers (ip,    label,     type,           status, last_check) 
 		  		 		  VALUES('$ip', 'Default', '$device_type', 'on',   NOW());";
