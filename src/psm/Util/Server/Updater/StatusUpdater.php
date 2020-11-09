@@ -266,7 +266,7 @@ class StatusUpdater
 	    
 		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/" . $serverIp . ".*") as $filename) {
 	
-			echo 'File Name: ' . $filename . "\n";
+			echo 'File Name: ' . $filename . " - " . filemtime($filename) . "\n";
 	
 			if($fmt == 0) {
 				$earliest_file = $filename;
