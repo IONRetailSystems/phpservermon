@@ -68,7 +68,7 @@ class UpdateManager implements ContainerAwareInterface
 		$sql  = "Select ip as result  from psm_servers where ip = '$ip'";
 		$stmt = $this->container->get('db')->query($sql);
 		
-		if(!$stmt->rowCount()) {
+		if(!count($stmt) {
 		    	echo 'Not Found' . "\n";
      			$sql = "INSERT INTO psm_servers (ip,    label,     type,           status, last_check) 
 		  		 		  VALUES('$ip', 'Default', '$device_type', 'on',   NOW());";
@@ -80,12 +80,13 @@ class UpdateManager implements ContainerAwareInterface
 	 		 */
 
 			if($device_type=='Server') {
-				$affected_rows += $stmt->rowCount();
+				$affected_rows += count($stmt);
 			}
 		}
 	}
 
 	if($affected_rows) {
+		echo 'Updating user permissions' . "/n";
 		$sql = "Insert into psm_users_servers (server_id, user_id) 
 		        Select server_id, user_id  from psm_servers join psm_users where type = 'Server';";
 		$stmt = $this->container->get('db')->query($sql);
