@@ -46,6 +46,54 @@ class UpdateManager implements ContainerAwareInterface
     }
 
     /**
+     * Add any new servers automatically
+     */
+    public function addnewservers()
+    {
+	$affected_rows = 0;
+	foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/*.*") as $filename) {
+		echo $filename . "\n";
+		$server_details = parse_ini_file($filename);
+
+ 		if (strpos($filename, 'Server') !== false) {
+			$ip = explode('.', $filename)[1];
+			$device_type = 'Server';
+		} else {
+			$ip = explode('.', $filename)[0];
+			$ip = end(explode('/',$ip));
+			$device_type = 'Sensor';
+		}
+
+		$stmt = $db->prepare("Select ip as result  from psm_servers where ip = :ip");
+		$stmt->execute(array(':ip' => $ip));
+
+		if(!$stmt->rowCount()) {
+		    	echo 'Not Found' . "\n";
+     			$stmt = $db->prepare("INSERT INTO psm_servers (ip,  label,     type,  status,  last_check) 
+		  		 				VALUES(:ip, 'Default', :type, :status, NOW());");
+
+			$stmt->execute(array(':ip'            => $ip, 
+					     ':type'          => $device_type,
+			     		     ':status'        => 'on'));
+
+			/*
+		 	 * if type server and we had to add then we need to set the alerts for servers to include
+	 		 */
+
+			if($device_type=='Server') {
+				$affected_rows += $stmt->rowCount();
+			}
+		}
+	}
+
+	if($affected_rows) {
+		$stmt = $db->prepare("Insert into psm_users_servers (server_id, user_id) 
+				      Select server_id, user_id  from psm_servers join psm_users where type = 'Server';");
+		$stmt->execute();
+	}
+    }
+    	
+   /**
      * Go :-)
      *
      * @param boolean $skip_perms if TRUE, no user permissions will be taken in account and all servers will be updated
@@ -53,7 +101,11 @@ class UpdateManager implements ContainerAwareInterface
      */
     public function run($skip_perms = false, $status = null)
     {
-        // added green, yellow, red
+     	
+	// add any new servers first
+	$this->addnewservers();
+	    
+	// added green, yellow, red
 	if (false === in_array($status, ['on', 'off', 'green', 'yellow', 'red'], true)) {
             $status = null;
         }
