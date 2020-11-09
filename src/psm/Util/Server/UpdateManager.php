@@ -65,18 +65,15 @@ class UpdateManager implements ContainerAwareInterface
 			$device_type = 'Sensor';
 		}
 
-		$db   = $this->container->get('db');
-		$stmt = $db->prepare("Select ip as result  from psm_servers where ip = :ip");
-		$stmt->execute(array(':ip' => $ip));
-
+		$sql  = "Select ip as result  from psm_servers where ip = '$ip';
+		$stmt = $this->container->get('db')->query($sql);
+		
 		if(!$stmt->rowCount()) {
 		    	echo 'Not Found' . "\n";
-     			$stmt = $db->prepare("INSERT INTO psm_servers (ip,  label,     type,  status,  last_check) 
-		  		 				VALUES(:ip, 'Default', :type, :status, NOW());");
+     			$sql = "INSERT INTO psm_servers (ip,    label,     type,           status, last_check) 
+		  		 		  VALUES('$ip', 'Default', '$device_type', 'on',   NOW());";
 
-			$stmt->execute(array(':ip'            => $ip, 
-					     ':type'          => $device_type,
-			     		     ':status'        => 'on'));
+			$stmt = $this->container->get('db')->query($sql);
 
 			/*
 		 	 * if type server and we had to add then we need to set the alerts for servers to include
@@ -89,9 +86,9 @@ class UpdateManager implements ContainerAwareInterface
 	}
 
 	if($affected_rows) {
-		$stmt = $db->prepare("Insert into psm_users_servers (server_id, user_id) 
-				      Select server_id, user_id  from psm_servers join psm_users where type = 'Server';");
-		$stmt->execute();
+		$sql "Insert into psm_users_servers (server_id, user_id) 
+		      Select server_id, user_id  from psm_servers join psm_users where type = 'Server';"
+		$stmt = $this->container->get('db')->query($sql);
 	}
     }
     	
