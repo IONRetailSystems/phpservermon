@@ -121,17 +121,30 @@ class StatusUpdater
         switch ($this->server['type']) {
             case 'ping':
                 $this->status_new = $this->updatePing($max_runs);
-        // update server status
-        $save = array(
-            'last_check' => date('Y-m-d H:i:s'),
-            'error' => $this->error,
-            'rtime' => $this->rtime
-        );
-
+        	// update server status
+        	$save = array(
+            		'last_check' => date('Y-m-d H:i:s'),
+            		'error' => $this->error,
+            		'rtime' => $this->rtime
+        		);
                 break;
-   			case 'server':
-			        $this->status_new = $this->UpdateServer($max_runs);
-	            // update server status
+
+	    case 'sensor':
+		$this->status_new = $this->UpdateSensor($max_runs);
+	        // update server status
+                $save = array(
+                    'last_check' => date('Y-m-d H:i:s'),
+                    'error' => $this->error,
+                    'rtime' => $this->rtime,
+                    'label' => $this->label,
+                    'status'=> $this->status,
+                    'sensor_status'=> $this->sensor_status,
+                    'last_online'  => $this->last_online);
+		break;
+			
+	    case 'server':
+		$this->status_new = $this->UpdateServer($max_runs);
+	        // update server status
                 $save = array(
                     'last_check' => date('Y-m-d H:i:s'),
                     'error' => $this->error,
@@ -295,6 +308,65 @@ class StatusUpdater
  	     $this->server_status = $server_details['server_status'];
     	     $this->sensor_status = $server_details['sensors_state'];
    	     $this->last_counts   = $server_details['last_counts'];
+	     $this->last_online   = $server_details['status_set'];
+	    
+	return $this->status;
+			
+	}
+
+	
+	
+	
+   /**
+     * Check the Sensor Flags Files
+     * @param int $max_runs
+     * @param int $run
+     * @return boolean  /**
+     * @param int $max_runs
+     * @param int $run
+     * @return boolean
+     */
+    protected function updateSensor($max_runs, $run = 1)
+    {
+        $serverIp = $this->server['ip'];
+	$fmt = 0;
+	
+	echo 'Server IP: ' . $this->server['ip'] . "\n";
+	    
+		foreach (glob("/home/bitnami/htdocs/GateLogs/UnitStatus/" . $serverIp . ".*") as $filename) {
+	
+			echo 'File Name: ' . $filename . "\n";
+	
+			if($fmt == 0) {
+				$earliest_file = $filename;
+				$fmt           = filemtime($filename);
+			} elseif(filemtime($filename) > $fmt ) {
+				// remove the old file
+				unlink($earliest_file);
+				$earliest_file = $filename;
+				$fmt           = filemtime($filename);
+			}
+		}
+		$server_details = parse_ini_file($earliest_file);
+	    	
+		print_r($server_details);
+		
+		$this->status = 'green';
+
+	    	if(strtolower($server_details['sensors_state']) !='ok') {
+			$this->status = 'red';
+			$this->error = $server_details['sensors_state'];
+		}
+            
+	    /*
+             * What is going to change ?
+             * Label if name of system has changed
+             * Last count will be a change
+             * Status could be changed.
+             */ 
+            
+	     $this->label         = $server_details['district'];	
+    	     $this->sensor_status = $server_details['sensors_state'];
 	     $this->last_online   = $server_details['status_set'];
 	    
 	return $this->status;
