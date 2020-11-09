@@ -338,6 +338,9 @@ class StatusUpdater
 				unlink($earliest_file);
 				$earliest_file = $filename;
 				$fmt           = filemtime($filename);
+			} elseif(filemtime($filename) < $fmt ) {
+				// remove the old file
+				unlink($filename);
 			}
 		}
 		$server_details = parse_ini_file($earliest_file);
