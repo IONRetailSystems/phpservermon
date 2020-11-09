@@ -86,8 +86,8 @@ class UpdateManager implements ContainerAwareInterface
 	}
 
 	if($affected_rows) {
-		$sql "Insert into psm_users_servers (server_id, user_id) 
-		      Select server_id, user_id  from psm_servers join psm_users where type = 'Server';";
+		$sql = "Insert into psm_users_servers (server_id, user_id) 
+		        Select server_id, user_id  from psm_servers join psm_users where type = 'Server';";
 		$stmt = $this->container->get('db')->query($sql);
 	}
     }
