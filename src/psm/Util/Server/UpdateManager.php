@@ -65,7 +65,7 @@ class UpdateManager implements ContainerAwareInterface
 			$device_type = 'Sensor';
 		}
 
-		$sql  = "Select ip as result  from psm_servers where ip = '$ip';
+		$sql  = "Select ip as result  from psm_servers where ip = '$ip'";
 		$stmt = $this->container->get('db')->query($sql);
 		
 		if(!$stmt->rowCount()) {
@@ -87,7 +87,7 @@ class UpdateManager implements ContainerAwareInterface
 
 	if($affected_rows) {
 		$sql "Insert into psm_users_servers (server_id, user_id) 
-		      Select server_id, user_id  from psm_servers join psm_users where type = 'Server';"
+		      Select server_id, user_id  from psm_servers join psm_users where type = 'Server';";
 		$stmt = $this->container->get('db')->query($sql);
 	}
     }
