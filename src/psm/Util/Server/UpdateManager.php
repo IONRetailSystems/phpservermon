@@ -60,7 +60,8 @@ class UpdateManager implements ContainerAwareInterface
 			$device_type = 'Server';
 		} else {
 			$ip = explode('.', $filename)[0];
-			$ip = end(explode('/',$ip));
+			$parts = explode('/',$ip);
+			$ip = end($parts);
 			$device_type = 'Sensor';
 		}
 
