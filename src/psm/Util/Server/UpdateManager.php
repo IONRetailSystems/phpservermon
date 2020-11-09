@@ -64,6 +64,7 @@ class UpdateManager implements ContainerAwareInterface
 			$device_type = 'Sensor';
 		}
 
+		$db   = $this->container->get('db');
 		$stmt = $db->prepare("Select ip as result  from psm_servers where ip = :ip");
 		$stmt->execute(array(':ip' => $ip));
 
