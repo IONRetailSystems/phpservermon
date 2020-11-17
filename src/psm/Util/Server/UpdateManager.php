@@ -151,8 +151,15 @@ class UpdateManager implements ContainerAwareInterface
 	    */
 		
             // notify the nerds if applicable
-            $notifier->notify($server['server_id'], $status_old, $status_new);
-            // clean-up time!! archive all records
+		
+	    /* ION Custom Code -- Suppress Sensor Warnings from being emailed
+	     * 
+	     */
+	    if(strtolower($server['type']) != 'sensor') {
+               $notifier->notify($server['server_id'], $status_old, $status_new);
+	    }
+		
+	    // clean-up time!! archive all records
             $archive = new ArchiveManager($this->container->get('db'));
             $archive->archive($server['server_id']);
             $archive->cleanup($server['server_id']);
