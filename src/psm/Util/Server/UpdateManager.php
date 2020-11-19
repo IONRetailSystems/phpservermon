@@ -92,7 +92,28 @@ class UpdateManager implements ContainerAwareInterface
 		$stmt = $this->container->get('db')->query($sql);
 	}
     }
-    	
+
+    /**
+     * Load PAX Data 
+     */
+    public function loadpax()
+    {
+	$affected_rows = 0;
+	foreach (glob("/home/bitnami/htdocs/GateLogs/PAX/") as $filename) {
+		echo 'Directory: ' . $filename . "\n";
+		
+		/**
+		 * Get the latest PAX record and server id from the database
+		 * Then scan that directory for any filemtime > that date/time
+		 */
+		
+		$sql  = "Select ip as result  from psm_servers where ip = '$ip'";
+		$stmt = $this->container->get('db')->query($sql);
+		
+	}
+
+    }
+
    /**
      * Go :-)
      *
