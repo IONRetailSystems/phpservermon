@@ -125,6 +125,10 @@ class UpdateManager implements ContainerAwareInterface
      	
 	// add any new servers first
 	$this->addnewservers();
+	
+	// load pax data
+	$this->loadpax();
+	    
 	    
 	// added green, yellow, red
 	if (false === in_array($status, ['on', 'off', 'green', 'yellow', 'red'], true)) {
